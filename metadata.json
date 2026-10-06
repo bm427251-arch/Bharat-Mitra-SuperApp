@@ -1,0 +1,6 @@
+{
+  "name": "BHARAT MITRA - Mobility & Service Super App",
+  "description": "All-in-one local mobility and rural-urban service super app featuring Bike Taxi, Auto-Rickshaw, Cabs, Parcel Delivery, Car Rentals, On-demand Drivers, and Secret Admin Access.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
