@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.bharatmitra.app"
-    compileSdk 34
+    compileSdk 36
     ndkVersion = System.getenv("ANDROID_NDK_VERSION") ?: "27.3.13750724"
 
     compileOptions {
@@ -43,7 +43,7 @@ android {
     defaultConfig {
         applicationId "com.bharatmitra.app"
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true

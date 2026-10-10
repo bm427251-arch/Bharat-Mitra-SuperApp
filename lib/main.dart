@@ -205,7 +205,7 @@ class BharatMitraApp extends StatelessWidget {
                 letterSpacing: 0.5,
               ),
             ),
-            cardTheme: CardTheme(
+            cardTheme: CardThemeData(
               elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
@@ -248,7 +248,7 @@ class BharatMitraApp extends StatelessWidget {
                 letterSpacing: 0.5,
               ),
             ),
-            cardTheme: CardTheme(
+            cardTheme: CardThemeData(
               elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
@@ -2025,7 +2025,7 @@ class _CabRideScreenState extends State<CabRideScreen> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => _confirmBooking(context, cabs[_selectedCabType]['name']!, cabs[_selectedCabType]['fare']!),
-                child: Text('Book ${cabs[_selectedCabType][\'name\']} (${cabs[_selectedCabType][\'fare\']})'),
+                child: Text('Book ${cabs[_selectedCabType]["name"]} (${cabs[_selectedCabType]["fare"]})'),
               ),
             ),
           ],
@@ -2352,10 +2352,10 @@ class _RentCarScreenState extends State<RentCarScreen> {
                 style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF0F8A3C)),
                 onPressed: () => _confirmBooking(
                   context,
-                  '${rentalCars[_selectedVehicle][\'name\']} • $modeLabel',
+                  '${rentalCars[_selectedVehicle]["name"]} • $modeLabel',
                   rentalCars[_selectedVehicle]['rate']!,
                 ),
-                child: Text('Reserve ${rentalCars[_selectedVehicle][\'name\']} ($modeLabel)'),
+                child: Text('Reserve ${rentalCars[_selectedVehicle]["name"]} ($modeLabel)'),
               ),
             ),
           ],
@@ -2739,15 +2739,12 @@ class _LiveTrackingScreenState extends State<LiveTrackingScreen>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Are you sure you want to cancel this ongoing trip?
-(আপনি কি রাইডটি বাতিল করতে চান?)',
+              'Are you sure you want to cancel this ongoing trip?\n(আপনি কি রাইডটি বাতিল করতে চান?)',
               style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
             ),
             SizedBox(height: 10),
             Text(
-              '• Trip simulation stops immediately.
-• Zero cancellation penalty fee applied.
-• You will be returned to Home Screen.',
+              '• Trip simulation stops immediately.\n• Zero cancellation penalty fee applied.\n• You will be returned to Home Screen.',
               style: TextStyle(fontSize: 12, color: Colors.black54),
             ),
           ],
