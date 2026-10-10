@@ -44,6 +44,18 @@ jobs:
             curl -sSL -o "android/gradle/wrapper/gradle-wrapper.jar" "https://raw.githubusercontent.com/gradle/gradle/v8.5.0/gradle/wrapper/gradle-wrapper.jar" || true
           fi
 
+      - name: ⚙️ Configure Runner NDK & Accept Android Licenses
+        run: |
+          yes | flutter doctor --android-licenses || true
+          if [ -d "$ANDROID_SDK_ROOT/ndk" ]; then
+            INSTALLED_NDK=$(ls -1 "$ANDROID_SDK_ROOT/ndk" | tail -n 1)
+            if [ -n "$INSTALLED_NDK" ]; then
+              echo "Detected pre-installed NDK: $INSTALLED_NDK"
+              echo "ANDROID_NDK_VERSION=$INSTALLED_NDK" >> $GITHUB_ENV
+              echo "ANDROID_NDK_HOME=$ANDROID_SDK_ROOT/ndk/$INSTALLED_NDK" >> $GITHUB_ENV
+            fi
+          fi
+
       - name: 🛠️ Build Release APK
         run: flutter build apk --release --android-skip-build-dependency-validation
 
