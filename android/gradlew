@@ -61,8 +61,10 @@ CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 if [ ! -e "$CLASSPATH" ]; then
     mkdir -p "$APP_HOME/gradle/wrapper"
     if command -v curl >/dev/null 2>&1; then
+        curl -sSL -o "$CLASSPATH" https://raw.githubusercontent.com/gradle/gradle/v8.14.0/gradle/wrapper/gradle-wrapper.jar 2>/dev/null || \
         curl -sSL -o "$CLASSPATH" https://raw.githubusercontent.com/gradle/gradle/v8.5.0/gradle/wrapper/gradle-wrapper.jar 2>/dev/null || true
     elif command -v wget >/dev/null 2>&1; then
+        wget -q -O "$CLASSPATH" https://raw.githubusercontent.com/gradle/gradle/v8.14.0/gradle/wrapper/gradle-wrapper.jar 2>/dev/null || \
         wget -q -O "$CLASSPATH" https://raw.githubusercontent.com/gradle/gradle/v8.5.0/gradle/wrapper/gradle-wrapper.jar 2>/dev/null || true
     fi
 fi
