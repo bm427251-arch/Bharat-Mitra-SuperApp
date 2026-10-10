@@ -6,3 +6,15 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Flutter & Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+
+# Android
+.gradle/
+local.properties
+**/android/**/build/
+**/android/**/.gradle/

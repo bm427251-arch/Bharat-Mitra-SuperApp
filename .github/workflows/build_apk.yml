@@ -22,6 +22,9 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'gradle'
+          cache-dependency-path: |
+            android/**/*.gradle*
+            android/gradle/wrapper/gradle-wrapper.properties
 
       - name: 🐦 Set up Flutter
         uses: subosito/flutter-action@v2
@@ -31,6 +34,14 @@ jobs:
 
       - name: 📦 Install Flutter dependencies
         run: flutter pub get
+
+      - name: 🔧 Ensure Gradle Wrapper and Permissions
+        run: |
+          chmod +x android/gradlew
+          if [ ! -f "android/gradle/wrapper/gradle-wrapper.jar" ]; then
+            echo "Pre-downloading gradle-wrapper.jar..."
+            curl -sSL -o "android/gradle/wrapper/gradle-wrapper.jar" "https://raw.githubusercontent.com/gradle/gradle/v8.5.0/gradle/wrapper/gradle-wrapper.jar" || true
+          fi
 
       - name: 🛠️ Build Release APK
         run: flutter build apk --release
